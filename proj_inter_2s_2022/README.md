@@ -21,7 +21,13 @@ Nesse sentido, qual seria a melhor escolha para ela pensando em otimizar a chanc
 
 A extração dos dados aconteceu através da API da Riot ( https://developer.riotgames.com/ ),
 
-Os dados Inicialmente foram armazenados localmente e em seguida armazenados em um bucket no amazon S3.
+Os dados Inicialmente foram armazenados localmente e em seguida armazenados em um bucket no amazon S3 seguindo a arquitetura.
+
+![App Screenshot](https://github.com/LucasPieroo/Pos-IFSP/blob/main/proj_inter_2s_2022/Imagens/arquitetura.PNG?raw=true)
+
+E a o bloco de anotações com as seguintes configurações :
+
+![App Screenshot](https://github.com/LucasPieroo/Pos-IFSP/blob/main/proj_inter_2s_2022/Imagens/config_ba.PNG?raw=true)
 
 A análise de dados foi feita toda pelo Amazon SageMaker e seguiu as etapa seguintes começando pela criação de um modelo de previsão de vitória:
 
