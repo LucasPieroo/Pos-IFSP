@@ -19,7 +19,11 @@ Nesse sentido, qual seria a melhor escolha para ela pensando em otimizar a chanc
 
 ## Etapas de desenvolvimento
 
-A extração dos dados aconteceu através da API da Riot ( https://developer.riotgames.com/ ),
+A extração dos dados aconteceu através da API da Riot ( https://developer.riotgames.com/ ), onde extraimos **35309 registros de partida com 82 colunas** sendo que após um tratamento inicial dos dados chegamos a um total de  **27477** partidas a serem analisadas.
+
+Os dados foram coletados por um mês ( 1 vez por semana) sendo estes dados referentes aos 200 melhores jogadores do Brasil segundo o rankingo do jogo. 
+
+A descrição dos dados esta no notebook.
 
 Os dados Inicialmente foram armazenados localmente e em seguida armazenados em um bucket no amazon S3 seguindo a arquitetura.
 
