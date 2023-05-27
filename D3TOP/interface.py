@@ -62,7 +62,7 @@ base_auxiliar["ordem"] = pd.Categorical(base_auxiliar["workId"], categories=simi
 base_auxiliar = base_auxiliar.sort_values("ordem").reset_index()
 
 if fuzzy_usar == "Yes":
-    mask = base_auxiliar["name"].apply(lambda x: fuzz.partial_ratio(option, x) < 75)
+    mask = base_auxiliar["name"].apply(lambda x: fuzz.token_sort_ratio(option, x) < 75)
     filtered_df = base_auxiliar[mask]
     base_auxiliar = filtered_df.reset_index(drop = True)
 
