@@ -45,7 +45,7 @@ option = st.selectbox(
     animes["name"])
 st.write('You selected:', option)
 index = animes[animes["name"] == option].index[0]
-genero = animes.loc[index, "genre"]
+genero = animes.loc[index, "genres"]
 # Centralized title
 st.markdown(f"<h1 style='text-align: center;'>{option}</h1>", unsafe_allow_html=True)
 
