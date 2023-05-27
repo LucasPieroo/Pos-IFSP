@@ -5,7 +5,7 @@ import math
 from fuzzywuzzy import fuzz
 
 st.set_page_config(layout='wide')
-aval = pd.read_csv("reviews_tratada.csv")
+#aval = pd.read_csv("reviews_tratada.csv")
 animes = pd.read_excel("base_tratada_final_animes.xlsx")
 similarity_matrix = np.load("vector.npy")
 #Função para encontrar top animes:
