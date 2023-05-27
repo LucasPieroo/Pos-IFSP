@@ -11,12 +11,17 @@ st.set_page_config(layout='wide')
 animes = pd.read_excel("D3TOP/base_tratada_final_animes.xlsx")
 #similarity_matrix = np.load("D3TOP/vector.npy")
 
-# Vectorize the preprocessed anime descriptions
-vectorizer = TfidfVectorizer()
-vectorized_descriptions = vectorizer.fit_transform(animes['synopsis tratada final'])
+@st.cache 
+def ml_teste():
+    # Vectorize the preprocessed anime descriptions
+    vectorizer = TfidfVectorizer()
+    vectorized_descriptions = vectorizer.fit_transform(animes['synopsis tratada final'])
 
-# Calculate similarity scores
-similarity_matrix = cosine_similarity(vectorized_descriptions)
+    # Calculate similarity scores
+    similarity_matrix = cosine_similarity(vectorized_descriptions)
+    return similarity_matrix
+
+similarity_matrix = ml_teste()
 
 #Função para encontrar top animes:
 def get_top_similar_animes(anime_index, similarity_matrix, fuzzy_usar, top_k=5):
