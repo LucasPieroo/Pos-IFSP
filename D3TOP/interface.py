@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 import math
 from fuzzywuzzy import fuzz
-
+import os
+print(os.getcwd())    
 st.set_page_config(layout='wide')
 #aval = pd.read_csv("reviews_tratada.csv")
 animes = pd.read_excel("../base_tratada_final_animes.xlsx")
