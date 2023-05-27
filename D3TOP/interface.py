@@ -75,9 +75,9 @@ base_auxiliar['fuzzy_ratio'] = base_auxiliar['genres'].apply(lambda x: fuzz.rati
 
 # Create categories based on Fuzzy Ratio
 conditions = [
-    (base_auxiliar['fuzzy_ratio'] > 0.8),
-    (base_auxiliar['fuzzy_ratio'] > 0.5),
-    (base_auxiliar['fuzzy_ratio'] > 0.3)
+    (base_auxiliar['fuzzy_ratio'] > 80),
+    (base_auxiliar['fuzzy_ratio'] > 50),
+    (base_auxiliar['fuzzy_ratio'] > 30)
 ]
 
 values = [3, 2, 1]
