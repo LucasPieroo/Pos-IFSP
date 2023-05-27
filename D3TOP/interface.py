@@ -3,12 +3,11 @@ import pandas as pd
 import numpy as np
 import math
 from fuzzywuzzy import fuzz
-import os
-print(os.getcwd())    
+
 st.set_page_config(layout='wide')
 #aval = pd.read_csv("reviews_tratada.csv")
-animes = pd.read_excel("../base_tratada_final_animes.xlsx")
-similarity_matrix = np.load("../vector.npy")
+animes = pd.read_excel("D3TOP/base_tratada_final_animes.xlsx")
+similarity_matrix = np.load("D3TOP/vector.npy")
 #Função para encontrar top animes:
 def get_top_similar_animes(anime_index, similarity_matrix, fuzzy_usar, top_k=5):
     if fuzzy_usar == "No":
