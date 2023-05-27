@@ -56,7 +56,6 @@ if fuzzy_usar == "Yes":
 col1, col2, col3 = st.columns(3)
 tamanho_max = math.ceil(max(len(base_auxiliar.loc[0,'name']) , len(base_auxiliar.loc[1,'name']), len(base_auxiliar.loc[2,'name']))/46)
 with col1:
-    st.title(fuzz.partial_ratio(option, base_auxiliar.loc[0,"name"]))
     st.markdown(
     f'<h3 style="text-align:center; height:{50*tamanho_max}px;">{base_auxiliar.loc[0,"name"]}</h3>',
     unsafe_allow_html=True
@@ -65,7 +64,6 @@ with col1:
     st.markdown(f"<p style='text-align: center;'>{base_auxiliar.loc[1,'synopsis']}</p>", unsafe_allow_html=True)
 
 with col2:
-    st.title(fuzz.partial_ratio(option, base_auxiliar.loc[1,"name"]))
     st.markdown(
     f'<h3 style="text-align:center; height:{50*tamanho_max}px;">{base_auxiliar.loc[1,"name"]}</h3>',
     unsafe_allow_html=True)
@@ -73,7 +71,6 @@ with col2:
     st.markdown(f"<p style='text-align: center;'>{base_auxiliar.loc[1,'synopsis']}</p>", unsafe_allow_html=True)
 
 with col3:
-    st.title(fuzz.partial_ratio(option, base_auxiliar.loc[2,"name"]))
     st.markdown(
     f'<h3 style="text-align:center; height:{50*tamanho_max}px;">{base_auxiliar.loc[2,"name"]}</h3>',
     unsafe_allow_html=True)
