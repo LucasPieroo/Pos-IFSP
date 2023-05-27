@@ -24,15 +24,11 @@ def ml_teste():
 similarity_matrix = ml_teste()
 
 #Função para encontrar top animes:
-def get_top_similar_animes(anime_index, similarity_matrix, fuzzy_usar, top_k=5):
-    if fuzzy_usar == "No":
+def get_top_similar_animes(anime_index, similarity_matrix):
         anime_scores = similarity_matrix[anime_index]  # Get similarity scores for the given anime
-        top_indices = anime_scores.argsort()[-top_k-1:-1][::-1]  # Get top similar anime indices (excluding the given anime itself)
+        top_indices = anime_scores.argsort()[-30-1:-1][::-1]  # Get top similar anime indices (excluding the given anime itself)
         return animes.iloc[top_indices]['workId'].values.tolist()
-    else:
-        anime_scores = similarity_matrix[anime_index]  # Get similarity scores for the given anime
-        top_indices = anime_scores.argsort()[-80-1:-1][::-1]  # Get top similar anime indices (excluding the given anime itself)
-        return animes.iloc[top_indices]['workId'].values.tolist()
+
 
 # escrevendo um título na página
 st.title('Anime recomendation system')
@@ -59,7 +55,7 @@ st.markdown(f"<p style='text-align: center;'>{animes.loc[index,'synopsis']}</p>"
 st.markdown(f"<h1 style='text-align: center;'>Recomendações</h1>", unsafe_allow_html=True)
 
 #Selecionando as recomendações
-similar_animes = get_top_similar_animes(index, similarity_matrix, fuzzy_usar, top_k=10)
+similar_animes = get_top_similar_animes(index, similarity_matrix)
 
 base_auxiliar = animes[animes["workId"].isin(similar_animes)]
 base_auxiliar["ordem"] = pd.Categorical(base_auxiliar["workId"], categories=similar_animes, ordered=True)
