@@ -61,7 +61,10 @@ st.markdown(f"<h1 style='text-align: center;'>Recomendações</h1>", unsafe_allo
 #Selecionando as recomendações
 similar_animes = get_top_similar_animes(index, similarity_matrix, fuzzy_usar, top_k=10)
 
-base_auxiliar = animes[animes["workId"].isin(similar_animes)].reset_index()
+base_auxiliar = animes[animes["workId"].isin(similar_animes)]
+base_auxiliar["ordem"] = pd.Categorical(base_auxiliar["workId"], categories=similar_animes, ordered=True)
+base_auxiliar = base_auxiliar.sort_values("ordem").reset_index()
+
 if fuzzy_usar == "Yes":
     mask = base_auxiliar["name"].apply(lambda x: fuzz.partial_ratio(option, x) < 75)
     filtered_df = base_auxiliar[mask]
