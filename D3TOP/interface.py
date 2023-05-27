@@ -45,7 +45,7 @@ option = st.selectbox(
     animes["name"])
 st.write('You selected:', option)
 index = animes[animes["name"] == option].index[0]
-
+genero = animes.loc[index, "genre"]
 # Centralized title
 st.markdown(f"<h1 style='text-align: center;'>{option}</h1>", unsafe_allow_html=True)
 
@@ -70,6 +70,27 @@ if fuzzy_usar == "Yes":
     filtered_df = base_auxiliar[mask]
     base_auxiliar = filtered_df.reset_index(drop = True)
 
+# Calculate Fuzzy Ratio for each row
+base_auxiliar['fuzzy_ratio'] = base_auxiliar['genres'].apply(lambda x: fuzz.ratio(x, genero))
+
+# Create categories based on Fuzzy Ratio
+conditions = [
+    (base_auxiliar['fuzzy_ratio'] > 0.8),
+    (base_auxiliar['fuzzy_ratio'] > 0.5),
+    (base_auxiliar['fuzzy_ratio'] > 0.3)
+]
+
+values = [3, 2, 1]
+
+base_auxiliar['fuzzy_category'] = np.select(conditions, values, default=0)
+
+# Sort by Fuzzy Ratio categories, then by original order
+base_auxiliar.sort_values('fuzzy_category', ascending=False, kind='mergesort', inplace=True)
+
+# You can drop the helper columns if not needed
+base_auxiliar.drop(['fuzzy_ratio', 'fuzzy_category'], axis=1, inplace=True)
+base_auxiliar.reset_index(inplace = True , drop = True)  
+    
 # Three columns with Centralized title, centralized image,centralized text in each column
 col1, col2, col3 = st.columns(3)
 tamanho_max = math.ceil(max(len(base_auxiliar.loc[0,'name']) , len(base_auxiliar.loc[1,'name']), len(base_auxiliar.loc[2,'name']))/46)
