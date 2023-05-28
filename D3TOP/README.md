@@ -46,3 +46,14 @@ To access the application, simply click on the following link or copy and paste 
 https://lucaspieroo-pos-ifsp-d3topinterface-63wjbp.streamlit.app/
 
 The application will open in your default web browser, and you can start exploring anime recommendations based on your chosen anime. Enjoy exploring new animes tailored to your preferences!
+
+# Next Steps
+This project represents an initial step in constructing an anime recommendation system. However, there are several areas for improvement and expansion. Here are potential next steps for this project:
+
+- Incorporating user ratings: The current recommendation system is purely content-based, focusing solely on anime synopses. A personalized dimension could be added by including user ratings. This would entail creating user profiles based on their previous ratings and recommending animes that similar-profile users have rated highly.
+
+- Prioritizing newer animes: Another potential improvement is to prioritize newer animes in the recommendations. Older animes may have already been watched or could be of lesser production quality. This could be achieved by adding a weighting to the similarity calculation based on the release year.
+
+- Including rating scores: At present, an anime's rating score isn't considered in the recommendations. This might lead to low-rated animes being recommended simply because they have similar synopses. To avoid this, the rating score could be incorporated into the system, perhaps by adding a weighting based on the rating score to the similarity calculation.
+
+These improvements should help to develop a more robust and personalized recommendation system capable of making higher quality recommendations.
