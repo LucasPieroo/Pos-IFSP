@@ -8,6 +8,8 @@ Link para competição: https://www.kaggle.com/competitions/ifsp-d3apl-2023-face
 
 O principal objetivo deste trabalho é criar um modelo de rede neural capaz de identificar corretamente os rostos de 83 indivíduos a partir de imagens fornecidas. Para alcançar esse objetivo, vamos usar técnicas avançadas de aprendizado de máquina e processamento de imagens.
 
+No notebook [Brainstorm](https://github.com/LucasPieroo/Pos-IFSP/blob/main/Reconhecimento%20de%20face/Brainstorm.ipynb) você pode encontrar os testes que foram feitos até se chegar na solução final, enquanto no [modelos_finais](https://github.com/LucasPieroo/Pos-IFSP/blob/main/Reconhecimento%20de%20face/modelos_finais.ipynb) você encontra apenas o melhor modelo que foi usado para submissão
+
 ## 🎯 Objetivo
 
 Nosso objetivo é desenvolver um modelo de aprendizado de máquina, particularmente uma rede neural, que seja capaz de identificar corretamente um rosto em uma imagem. A partir de uma imagem dada, nosso modelo deve determinar corretamente a quem o rosto pertence, dentre um total de 83 possíveis pessoas.
